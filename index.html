@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Моя визитка</title>
+  <meta name="description" content="Личный одностраничный сайт: фото, обо мне, навыки, контакты." />
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#101418;
+      --muted:#5b6673;
+      --brand:#146ef5;
+      --card:#f5f7fb;
+      --chip:#eef2f7;
+      --shadow:0 8px 20px rgba(16,20,24,.08);
+      --radius:16px;
+    }
+    body.dark{
+      --bg:#0d1117;
+      --text:#e6edf3;
+      --muted:#9fb0c0;
+      --brand:#4ea1ff;
+      --card:#111827;
+      --chip:#1f2937;
+      --shadow:0 8px 20px rgba(0,0,0,.35);
+    }
+    html,body{height:100%;}
+    body{
+      margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji"; 
+      background:var(--bg); color:var(--text); line-height:1.6;
+      transition: background .3s, color .3s;
+    }
+    .container{max-width:1100px;margin:0 auto;padding:24px;}
+    header.hero{display:grid;grid-template-columns:140px 1fr;gap:24px;align-items:center;background:var(--card);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+    .avatar{width:140px;height:140px;border-radius:50%;object-fit:cover;border:4px solid rgba(20,110,245,.12)}
+    .name{margin:0;font-size:clamp(24px,4vw,40px);line-height:1.1}
+    .subtitle{margin:.25rem 0 0;color:var(--muted)}
+    nav{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap}
+    nav a{display:inline-block;padding:.55rem .9rem;border-radius:999px;background:var(--chip);text-decoration:none;color:var(--text)}
+    nav a:hover{outline:2px solid var(--brand); outline-offset:2px}
+
+    section{margin-top:28px}
+    .card{background:var(--card);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+
+    .grid{display:grid;gap:16px}
+    .cols-2{grid-template-columns:1fr 1fr}
+    @media (max-width:840px){
+      header.hero{grid-template-columns:1fr; text-align:center}
+      .avatar{margin:0 auto}
+      .cols-2{grid-template-columns:1fr}
+    }
+
+    .skills{display:flex;flex-wrap:wrap;gap:10px}
+    .chip{background:var(--chip);padding:.5rem .8rem;border-radius:999px;font-size:.95rem;white-space:nowrap}
+
+    .contact-list{display:grid;gap:10px}
+    .contact-item{display:flex;gap:12px;align-items:center;background:var(--card);padding:14px;border-radius:12px}
+    .contact-item a{color:var(--brand);text-decoration:none}
+    .contact-item a:hover{text-decoration:underline}
+
+    footer{margin:40px 0 12px;color:var(--muted);font-size:.9rem;text-align:center}
+    .theme-toggle{margin:16px 0;padding:.5rem 1rem;background:var(--chip);border:none;border-radius:999px;cursor:pointer}
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- HERO -->
+    <header class="hero" id="home">
+      <img class="avatar" src="IMG_7481.jpg" alt="IMG_7481.jpg" />
+      <div>
+        <h1 class="name">Igor Pogorelov</h1>
+        <p class="subtitle">QA специалист, с ноткой юмора и мидл скилами мб.</p>
+        <nav>
+          <a href="#about">О себе</a>
+          <a href="#skills">Навыки</a>
+          <a href="#contacts">Контакты</a>
+        </nav>
+        <button class="theme-toggle" onclick="toggleTheme()">Сменить тему</button>
+      </div>
+    </header>
+
+    <!-- ABOUT -->
+    <section id="about" class="card">
+      <h2>О себе</h2>
+      <p>Я QA специалист, с опытом работы более 1.5 лет, пришел к этой специальности не сразу, сначала подсмотрел за другом, а потом пошел на курсы, после успешного окончания я вышел на свою первую работу. Также у меня есть свою база отдыха на 5 домов в Ленинградской области на берегу реки Свирь.</p>
+    </section>
+    <!-- SKILLS + FACTS -->
+    <section class="grid cols-2">
+      <div id="skills" class="card">
+        <h2>Навыки</h2>
+        <div class="skills">
+          <span class="chip">HTML и CSS</span>
+          <span class="chip">Postman</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">Sentry и Kibana</span>
+          <span class="chip">Figma</span>
+          <span class="chip">Grafana</span>
+          <span class="chip">Charles</span>
+          <span class="chip">SQL</span>
+          <span class="chip">TestIT</span>
+          <span class="chip">Devtools</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Чем могу помочь</h2>
+        <ul>
+          <li>Найти БАГ. Ничего себе? Правда могу</li>
+          <li>Может быть локализую его, если смогу</li>
+          <li>Может быть смогу завести Баг-Репорт</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CONTACTS -->
+    <section id="contacts" class="card">
+      <h2>Контакты</h2>
+      <div class="contact-list">
+        <div class="contact-item">
+          <strong>Email:</strong>
+          <a href="mailto:you@example.com">garik_pogorelov@mail.ru, po9orelovigor@yandex.ru</a>
+        </div>
+        <div class="contact-item">
+          <strong>Телефон:</strong>
+          <a href="tel:+79990000000">+7 911 176‑58‑93</a>
+        </div>
+        <div class="contact-item">
+          <strong>Telegram:</strong>
+          <a href="https://t.me/your_nick" target="_blank" rel="noopener">@igor_olegovich_p</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>© <span id="y"></span> Igor Pogorelov. Сделано с любовью и немного при помощи чата GPT.</footer>
+  </div>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    function toggleTheme(){
+      document.body.classList.toggle('dark');
+    }
+  </script>
+</body>
+</html>
